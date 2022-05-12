@@ -13,7 +13,7 @@ public class TestWithClasspath
   public void testwithClasspath()
   {
     KieContainerUtils kieContainerUtils = new KieContainerUtils();
-    KieSession kieSession = kieContainerUtils.createDefaultSession();
+    KieSession kieSession = kieContainerUtils.createSession("fr.grdf.poc.drools.aa.sf");
     DemandeDTO demandeDTO = new DemandeDTO(TypeStatutDemandeEnum.ATTENTE_ANALYSE);
     kieSession.insert(demandeDTO);
     kieSession.fireAllRules();
