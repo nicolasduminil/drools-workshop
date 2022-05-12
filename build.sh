@@ -9,8 +9,7 @@ mvn -DskipTests clean install > /dev/null
 # If WebLogic Server isn't running already then start it
 #
 echo ">>> build.sh: Done"
-ps=$(ps -ef)
-if echo $ps | grep -q weblogic
+if ps -C weblogic > /dev/null
 then
   :
 else
