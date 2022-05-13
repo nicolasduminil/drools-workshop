@@ -14,14 +14,14 @@ then
   :
 else
   echo ">>> build.sh: Starting WebLogic Server"
-  mvn -pl gdi-war com.oracle.weblogic:weblogic-maven-plugin:start-server -DdomainHome=${domainHome} > /dev/null
+  mvn -o -pl gdi-war com.oracle.weblogic:weblogic-maven-plugin:start-server -DdomainHome=${domainHome} > /dev/null
   echo ">>> build.sh: Done"
 fi
 #
 # Deploy the gdi-war application
 #
 echo ">>> build.sh: Deploying the gdi-war.war application"
-mvn -pl gdi-war com.oracle.weblogic:weblogic-maven-plugin:redeploy > /dev/null
+mvn -o -pl gdi-war com.oracle.weblogic:weblogic-maven-plugin:redeploy > /dev/null
 echo ">>> build.sh: Done"
 #
 # Run unit tests
@@ -39,12 +39,12 @@ echo ">>> build.sh: Done"
 # Undeploy gdi-war application
 #
 echo ">>> Undeploying the gdi-war application"
-mvn -pl gdi-war com.oracle.weblogic:weblogic-maven-plugin:undeploy > /dev/null
+mvn -o -pl gdi-war com.oracle.weblogic:weblogic-maven-plugin:undeploy > /dev/null
 echo ">>> build.sh: Done"
 #
 # Stop WebLogic Server
 #
 echo ">>> build.sh: Stopping WebLogic Server"
-mvn -pl gdi-war com.oracle.weblogic:weblogic-maven-plugin:stop-server -DdomainHome=${domainHome} > /dev/null
+mvn -o -pl gdi-war com.oracle.weblogic:weblogic-maven-plugin:stop-server -DdomainHome=${domainHome} > /dev/null
 echo ">>> build.sh: Done"
 
