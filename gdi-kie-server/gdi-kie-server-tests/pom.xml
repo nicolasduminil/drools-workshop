@@ -10,4 +10,50 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>gdi-kie-server-tests</artifactId>
   <name>GDI :: The KIE server test module</name>
+  <dependencies>
+    <dependency>
+      <groupId>fr.grdf.poc</groupId>
+      <artifactId>gdi-kie-server-war</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <type>war</type>
+      <classifier>custom</classifier>
+    </dependency>
+    <dependency>
+      <groupId>org.kie.server</groupId>
+      <artifactId>kie-server-client</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.arquillian.junit</groupId>
+      <artifactId>arquillian-junit-container</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.arquillian.container</groupId>
+      <artifactId>arquillian-wls-remote-12.1.2</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <build>
+    <finalName>${project.artifactId}</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-failsafe-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>run-integration-tests</id>
+            <phase>integration-test</phase>
+            <goals>
+              <goal>integration-test</goal>
+              <goal>verify</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <skipTests>${skipTests}</skipTests>
+          <skipITs>${skipITs}</skipITs>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>

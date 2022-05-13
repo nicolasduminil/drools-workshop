@@ -51,6 +51,19 @@
         <scope>provided</scope>
       </dependency>
       <dependency>
+        <groupId>org.jboss.arquillian</groupId>
+        <artifactId>arquillian-bom</artifactId>
+        <version>1.1.10.Final</version>
+        <scope>import</scope>
+        <type>pom</type>
+      </dependency>
+      <dependency>
+        <groupId>org.jboss.arquillian.container</groupId>
+        <artifactId>arquillian-wls-remote-12.1.2</artifactId>
+        <version>1.0.0.Alpha3</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
         <groupId>javax.enterprise</groupId>
         <artifactId>cdi-api</artifactId>
         <version>2.0</version>
@@ -67,6 +80,16 @@
         <version>7.69.0.Final</version>
         <type>war</type>
         <classifier>ee8</classifier>
+      </dependency>
+      <dependency>
+        <groupId>org.kie.server</groupId>
+        <artifactId>kie-server-client</artifactId>
+        <version>7.69.0.Final</version>
+      </dependency>
+      <dependency>
+        <groupId>org.kie.remote</groupId>
+        <artifactId>kie-remote-client</artifactId>
+        <version>7.69.0.Final</version>
       </dependency>
       <dependency>
         <groupId>org.projectlombok</groupId>

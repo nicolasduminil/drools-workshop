@@ -5,11 +5,11 @@ export domainHome=/home/nicolas/oracle/wls1411/user_projects/domains/base_domain
 #
 echo ">>> build.sh: Building a clean archive by skipping unit tests execution"
 mvn -DskipTests clean install > /dev/null
+echo ">>> build.sh: Done"
 #
 # If WebLogic Server isn't running already then start it
 #
-echo ">>> build.sh: Done"
-if ps -C weblogic > /dev/null
+if ps -ef | grep weblogic | grep -v grep
 then
   :
 else
@@ -35,16 +35,18 @@ echo ">>> build.sh: Done"
 echo ">>> build.sh: Running the integration tests"
 mvn -DskipUTs verify
 echo ">>> build.sh: Done"
-#
-# Undeploy gdi-war application
-#
-echo ">>> Undeploying the gdi-war application"
-mvn -o -pl gdi-war com.oracle.weblogic:weblogic-maven-plugin:undeploy > /dev/null
-echo ">>> build.sh: Done"
-#
-# Stop WebLogic Server
-#
-echo ">>> build.sh: Stopping WebLogic Server"
-mvn -o -pl gdi-war com.oracle.weblogic:weblogic-maven-plugin:stop-server -DdomainHome=${domainHome} > /dev/null
-echo ">>> build.sh: Done"
-
+if  [[ $1 = "-c" ]]
+then
+  #
+  # Undeploy gdi-war application
+  #
+  echo ">>> Undeploying the gdi-war application"
+  mvn -o -pl gdi-war com.oracle.weblogic:weblogic-maven-plugin:undeploy > /dev/null
+  echo ">>> build.sh: Done"
+  #
+  # Stop WebLogic Server
+  #
+  echo ">>> build.sh: Stopping WebLogic Server"
+  mvn -o -pl gdi-war com.oracle.weblogic:weblogic-maven-plugin:stop-server -DdomainHome=${domainHome} > /dev/null
+  echo ">>> build.sh: Done"
+fi
