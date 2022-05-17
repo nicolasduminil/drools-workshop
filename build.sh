@@ -9,7 +9,7 @@ echo ">>> build.sh: Done"
 #
 # If WebLogic Server isn't running already then start it
 #
-if ps -ef | grep weblogic | grep -v grep
+if ps -ef | grep -q weblogic | grep -v grep
 then
   :
 else

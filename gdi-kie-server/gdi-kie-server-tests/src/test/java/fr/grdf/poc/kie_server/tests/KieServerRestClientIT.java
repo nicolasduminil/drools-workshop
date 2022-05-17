@@ -1,6 +1,5 @@
 package fr.grdf.poc.kie_server.tests;
 
-import org.apache.commons.io.*;
 import org.jboss.arquillian.container.test.api.*;
 import org.jboss.arquillian.junit.*;
 import org.jboss.shrinkwrap.api.*;
@@ -11,7 +10,6 @@ import org.kie.server.api.model.*;
 import org.kie.server.client.*;
 
 import java.io.*;
-import java.util.*;
 
 import static org.junit.Assert.*;
 

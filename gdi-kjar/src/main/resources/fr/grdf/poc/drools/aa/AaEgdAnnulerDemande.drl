@@ -1,9 +1,17 @@
 package fr.grdf.poc.drools.aa;
 import fr.grdf.poc.model.*;
 
-rule "demande : ATTENTE_ANALYSE;  EVT_IN=EGD_ANNUL" activation-group "demande-AA"
+rule "demande : ATTENTE_ANALYSE" activation-group "demande-AA"
 	when
-		demande  : DemandeDTO( statutCourantDemande != null)
+		demande  : DemandeDTO( statutCourantDemande == TypeStatutDemandeEnum.ATTENTE_ANALYSE)
 	then
     demande.setStatutCourantDemande(TypeStatutDemandeEnum.CLOTUREE_ANNULEE);
+    update(demande);
 	end
+
+rule "demande2 : CLOTURE_ANNULEE" activation-group "demande-AA"
+  when
+    demande2: DemandeDTO(statutCourantDemande == TypeStatutDemandeEnum.CLOTUREE_ANNULEE)
+  then
+    System.out.println ("### AaEgdAnnulerDemande.drl: demande2 has fired up");
+  end
