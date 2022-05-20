@@ -23,9 +23,8 @@ En tant que développeurs Java, nous aurions le reflèxe d'implémenter en Java 
 
 ## Quand ne pas utiliser des moteurs d'inférences
 
-Lorsqu'on a un petit nombre de règles à gérer
-
-Lorsque le domaine métier est de telle nature qu'il ne change jamais ou très rarement
+* Lorsqu'on a un petit nombre de règles à gérer
+* Lorsque le domaine métier est de telle nature qu'il ne change jamais ou très rarement
 
 ## Déploiement et tests
 
