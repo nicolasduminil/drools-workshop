@@ -7,5 +7,5 @@ import javax.ejb.*;
 @Remote
 public interface KieFacadeRemote
 {
-  public TypeStatutDemandeEnum fireRules (DemandeDTO demandeDTO);
+  public DemandeDTO.TypeStatutDemandeEnum fireRules(DemandeDTO demandeDTO);
 }

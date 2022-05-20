@@ -9,7 +9,7 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <artifactId>gdi-common</artifactId>
-  <name>GDI :: the common module</name>
+  <name>GDI :: The common module</name>
   <dependencies>
     <dependency>
       <groupId>fr.grdf.poc</groupId>
@@ -26,6 +26,10 @@
     <dependency>
       <groupId>org.drools</groupId>
       <artifactId>drools-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.drools</groupId>
+      <artifactId>drools-decisiontables</artifactId>
     </dependency>
   </dependencies>
   <build>

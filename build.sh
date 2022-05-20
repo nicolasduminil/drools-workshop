@@ -9,7 +9,7 @@ echo ">>> build.sh: Done"
 #
 # If WebLogic Server isn't running already then start it
 #
-if ps -ef | grep -q weblogic | grep -v grep
+if ps -ef | grep weblogic | grep -v grep > /dev/null
 then
   :
 else
@@ -18,10 +18,13 @@ else
   echo ">>> build.sh: Done"
 fi
 #
-# Deploy the gdi-war application
+# Deploy the gdi-war applications
 #
 echo ">>> build.sh: Deploying the gdi-war.war application"
 mvn -o -pl gdi-war com.oracle.weblogic:weblogic-maven-plugin:redeploy > /dev/null
+echo ">>> build.sh: Done"
+echo ">>> build.sh: Deploying the gdi-war-dt.war application"
+mvn -o -pl gdi-war-dt com.oracle.weblogic:weblogic-maven-plugin:redeploy > /dev/null
 echo ">>> build.sh: Done"
 #
 # Run unit tests

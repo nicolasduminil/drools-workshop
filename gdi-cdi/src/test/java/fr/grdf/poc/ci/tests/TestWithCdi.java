@@ -14,7 +14,7 @@ public class TestWithCdi
   {
     DroolsWithCdi droolsWithCdi = new Weld().initialize().instance().select(DroolsWithCdi.class).get();
     assertNotNull(droolsWithCdi);
-    DemandeDTO demandeDTO = new DemandeDTO(TypeStatutDemandeEnum.ATTENTE_ANALYSE);
-    assertEquals(TypeStatutDemandeEnum.CLOTUREE_ANNULEE, droolsWithCdi.applyRules(demandeDTO));
+    DemandeDTO demandeDTO = new DemandeDTO(DemandeDTO.TypeStatutDemandeEnum.ATTENTE_ANALYSE);
+    assertEquals(DemandeDTO.TypeStatutDemandeEnum.CLOTURE_ANNULEE, droolsWithCdi.applyRules(demandeDTO));
   }
 }

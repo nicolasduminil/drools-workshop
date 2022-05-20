@@ -5,7 +5,6 @@ import fr.grdf.poc.model.*;
 import org.junit.*;
 
 import javax.naming.*;
-import java.util.*;
 
 import static org.junit.Assert.*;
 
@@ -17,7 +16,7 @@ public class DroolsIT
   @BeforeClass
   public static void before() throws Exception
   {
-    kieFacadeRemote = (KieFacadeRemote) new InitialContext().lookup("java:global.gdi-war.KieFacade!fr.grdf.poc.drools.facade.KieFacadeRemote");
+    kieFacadeRemote = (KieFacadeRemote) new InitialContext().lookup(jndiName);
   }
 
   @Test
@@ -29,7 +28,7 @@ public class DroolsIT
   @Test
   public void testRules()
   {
-    DemandeDTO demandeDTO = new DemandeDTO(TypeStatutDemandeEnum.ATTENTE_ANALYSE);
-    assertEquals(TypeStatutDemandeEnum.CLOTUREE_ANNULEE, kieFacadeRemote.fireRules(demandeDTO));
+    DemandeDTO demandeDTO = new DemandeDTO(DemandeDTO.TypeStatutDemandeEnum.ATTENTE_ANALYSE);
+    assertEquals(DemandeDTO.TypeStatutDemandeEnum.CLOTURE_ANNULEE, kieFacadeRemote.fireRules(demandeDTO));
   }
 }

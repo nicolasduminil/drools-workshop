@@ -1,9 +1,0 @@
-package fr.grdf.poc.drools.aa;
-import fr.grdf.poc.model.*;
-
-rule "demande : ATTENTE_ANALYSE;  EVT_IN=EGD_ANNUL" activation-group "demande-AA"
-	when
-		demande  : DemandeDTO( statutCourantDemande == TypeStatutDemandeEnum.ATTENTE_ANALYSE)
-	then
-    demande.setStatutCourantDemande(TypeStatutDemandeEnum.CLOTUREE_ANNULEE);
-	end

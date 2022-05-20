@@ -9,7 +9,7 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <artifactId>gdi-ci</artifactId>
-  <name>GDI :: the CI module</name>
+  <name>GDI :: The CI module</name>
   <dependencies>
     <dependency>
       <groupId>org.drools</groupId>

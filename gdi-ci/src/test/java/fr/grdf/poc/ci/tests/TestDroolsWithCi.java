@@ -15,9 +15,9 @@ public class TestDroolsWithCi
   {
     KieContainerUtils kieContainerUtils = new KieContainerUtils(new GAV("fr.grdf.poc", "gdi-kjar", "1.0-SNAPSHOT"));
     KieSession kieSession = kieContainerUtils.createSession("fr.grdf.poc.drools.aa.sf");
-    DemandeDTO demandeDTO = new DemandeDTO(TypeStatutDemandeEnum.ATTENTE_ANALYSE);
+    DemandeDTO demandeDTO = new DemandeDTO(DemandeDTO.TypeStatutDemandeEnum.ATTENTE_ANALYSE);
     kieSession.insert(demandeDTO);
     kieSession.fireAllRules();
-    assertEquals(TypeStatutDemandeEnum.CLOTUREE_ANNULEE, demandeDTO.getStatutCourantDemande());
+    assertEquals(DemandeDTO.TypeStatutDemandeEnum.CLOTURE_ANNULEE, demandeDTO.getStatutCourantDemande());
   }
 }

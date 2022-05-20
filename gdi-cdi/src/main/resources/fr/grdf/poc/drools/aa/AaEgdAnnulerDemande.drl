@@ -1,0 +1,9 @@
+package fr.grdf.poc.drools.aa;
+import fr.grdf.poc.model.*;
+
+rule "demande : ATTENTE_ANALYSE -> CLOTURE_ANNULEE" activation-group "demande-AA"
+	when
+		demande  : DemandeDTO( statutCourantDemande == DemandeDTO.TypeStatutDemandeEnum.ATTENTE_ANALYSE)
+	then
+    demande.setStatutCourantDemande(DemandeDTO.TypeStatutDemandeEnum.CLOTURE_ANNULEE);
+	end

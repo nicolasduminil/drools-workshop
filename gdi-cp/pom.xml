@@ -9,7 +9,7 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <artifactId>gdi-cp</artifactId>
-  <name>GDI :: the CDI module</name>
+  <name>GDI :: The Classpath module</name>
   <dependencies>
     <dependency>
       <groupId>org.drools</groupId>

@@ -24,4 +24,9 @@ public class DemandeDTO implements Serializable
   {
     this.statutCourantDemande = statutCourantDemande;
   }
+
+  public enum TypeStatutDemandeEnum
+  {
+    A_FAIRE, CLOTURE_ANNULEE, ATTENTE_ANALYSE
+  }
 }

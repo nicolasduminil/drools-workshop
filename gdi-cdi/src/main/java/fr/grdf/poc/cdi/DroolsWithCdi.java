@@ -15,7 +15,7 @@ public class DroolsWithCdi
   private KieSession kieSession;
   private DemandeDTO demandeDTO;
 
-  public TypeStatutDemandeEnum applyRules (DemandeDTO demandeDTO)
+  public DemandeDTO.TypeStatutDemandeEnum applyRules (DemandeDTO demandeDTO)
   {
     kieSession.insert(demandeDTO);
     kieSession.fireAllRules();

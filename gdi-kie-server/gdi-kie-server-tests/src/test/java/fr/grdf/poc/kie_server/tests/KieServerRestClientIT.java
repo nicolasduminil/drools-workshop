@@ -33,7 +33,9 @@ public class KieServerRestClientIT
     KieContainerResource kContainer = new KieContainerResource("my-deploy", new ReleaseId("fr.grdf.poc", "gdi-kjar", "1.0-SNAPSHOT"));
     ServiceResponse<KieContainerResource> resp = client.createContainer("my-deploy", kContainer);
     assertNotNull(resp);
-    KieContainerStatus kis = resp.getResult().getStatus();
+    KieContainerResource kcr = resp.getResult();
+    assertNotNull(kcr);
+    KieContainerStatus kis = kcr.getStatus();
     assertNotNull(kis);
     assertTrue(kis.equals(KieContainerStatus.STARTED) || kis.equals((KieContainerStatus.CREATING)));
     //Server is now available to receive requests

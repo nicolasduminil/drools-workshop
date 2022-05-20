@@ -2,10 +2,14 @@ package fr.grdf.poc.common;
 
 import lombok.*;
 import lombok.extern.slf4j.*;
+import org.drools.decisiontable.*;
 import org.kie.api.*;
 import org.kie.api.builder.*;
+import org.kie.api.io.*;
 import org.kie.api.management.*;
 import org.kie.api.runtime.*;
+import org.kie.internal.builder.*;
+import org.kie.internal.io.*;
 
 @Getter
 @Setter
@@ -55,5 +59,12 @@ public class KieContainerUtils
       throw new IllegalStateException("Compilation errors were found. Check the logs.");
     }
     return results;
+  }
+
+  public String getDrlFromExcel(String excelFile)
+  {
+    DecisionTableConfiguration configuration = KnowledgeBuilderFactory.newDecisionTableConfiguration();
+    configuration.setInputType(DecisionTableInputType.XLS);
+    return new DecisionTableProviderImpl().loadFromResource(ResourceFactory.newClassPathResource(excelFile, getClass()), configuration);
   }
 }

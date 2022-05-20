@@ -3,13 +3,11 @@ package fr.grdf.poc.drools.facade;
 import fr.grdf.poc.common.*;
 import fr.grdf.poc.model.*;
 import lombok.extern.slf4j.*;
-import org.kie.api.cdi.*;
 import org.kie.api.management.*;
 import org.kie.api.runtime.*;
 
 import javax.annotation.*;
 import javax.ejb.*;
-import javax.inject.*;
 import java.io.*;
 
 @Stateless
@@ -33,7 +31,7 @@ public class KieFacade implements KieFacadeLocal, KieFacadeRemote, Serializable
   }
 
   @Override
-  public TypeStatutDemandeEnum fireRules(DemandeDTO demandeDTO)
+  public DemandeDTO.TypeStatutDemandeEnum fireRules(DemandeDTO demandeDTO)
   {
     kieSession.insert(demandeDTO);
     kieSession.fireAllRules();
