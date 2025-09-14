@@ -184,7 +184,7 @@
           <configuration>
             <adminurl>t3://localhost:7001</adminurl>
             <user>nicolas</user>
-            <password>California1</password>
+            <password>...</password>
             <source>${project.build.directory}/${project.build.finalName}.${project.packaging}</source>
             <name>${project.build.finalName}</name>
           </configuration>
